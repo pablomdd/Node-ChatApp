@@ -1,6 +1,7 @@
 const store =  require('./store');
 
 function addChat(users){
+    console.log(users);
     if(!users || !Array.isArray(users)){
         return Promise.reject('Invalid user list');
     }
