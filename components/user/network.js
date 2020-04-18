@@ -8,8 +8,18 @@ router.post('/', function(req, res) {
         .then( data => {
             response.success(req, res, data, 201);
         })
-        .then( err => {
+        .catch( err => {
             response.error(req, res, 'Internal error.', 500, err);
+        });
+});
+
+router.get('/', function(req, res){
+    controller.getUsers()
+        .then((userList) => {
+            response.success(req, res, userList, 200);
+        })
+        .catch( e => {
+            response.error(res, res, 'Internal error.', 500, e);
         });
 });
 
